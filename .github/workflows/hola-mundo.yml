@@ -1,4 +1,5 @@
 name: hola-mundo #Nombre del workflow
+run-name: I'm learning GitHub Actions!
 on: [push] #evento que lo activará
 jobs: #Definición de los jobs
   hola-mundo: #Nombre del job
@@ -9,8 +10,10 @@ jobs: #Definición de los jobs
         uses: haythem/public-ip@v1.3 #Usará el action haythem/public-ip
       - name: Hola mundo #Segundo step de nombre Hola mundo
         run: echo ¡Hola Mundo desde ${{ steps.ip.outputs.ipv4 }}! #bash
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 18
       - name: Run index
