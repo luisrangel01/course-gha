@@ -16,5 +16,7 @@ jobs: #Definición de los jobs
         uses: haythem/public-ip@v1.3 #Usará el action haythem/public-ip
       - name: Hola mundo #Segundo step de nombre Hola mundo
         run: echo ¡Hola Mundo desde ${{ steps.ip.outputs.ipv4 }}! #bash
+      - name: Definir variable
+        run: echo "GHA_USERNAME=${{ github.actor }}" >> $GITHUB_ENV
       - name: Run index
         run: node index.js
