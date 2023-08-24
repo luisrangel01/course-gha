@@ -36,3 +36,5 @@ jobs:
       - id: set-version
         name: Output version change
         run: npm pkg get version
+      - name: Definir variable
+        run: echo "GHA_USERNAME=${{ github.actor }}" >> $GITHUB_ENV
