@@ -10,9 +10,9 @@ jobs:
     name: "Add Comment"
     runs-on: ubuntu-latest
     steps:
+      - name: Definir variable
+        run: echo "GHA_USERNAME=${{ github.actor }}" >> $GITHUB_ENV
       - uses: mshick/add-pr-comment@v1
         with:
           message: Please set a versioning label of either `major`, `minor`, or `patch` to the pull request.
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Definir variable
-        run: echo "GHA_USERNAME=${{ github.actor }}" >> $GITHUB_ENV
